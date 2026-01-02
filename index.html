@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Yourself for Learning</title>
+<style>
+:root{
+  --bg:#0b1020;--card:#121831;--ink:#e7ebff;--muted:#a9b0ff;--accent:#7aa2ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;
+  color:var(--ink);
+  background:radial-gradient(1200px 600px at 10% -10%,#1a2150 0%,transparent 60%),var(--bg);
+  line-height:1.6;
+}
+header{padding:56px 20px 32px;text-align:center}
+header h1{font-size:clamp(2rem,4vw,3rem);margin:0 0 8px}
+header p{max-width:760px;margin:0 auto;color:var(--muted)}
+main{
+  max-width:1100px;margin:0 auto 64px;padding:0 20px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;
+}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01)),var(--card);
+  border:1px solid rgba(122,162,255,.2);
+  border-radius:16px;padding:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.tag{
+  display:inline-block;padding:4px 10px;border-radius:999px;
+  background:rgba(122,162,255,.15);color:var(--accent);
+  font-size:.8rem;margin-bottom:10px;
+}
+ul{padding-left:18px} li{margin:8px 0}
+.cta{
+  grid-column:1/-1;text-align:center;padding:28px 20px;
+  background:linear-gradient(180deg,rgba(122,162,255,.12),rgba(122,162,255,.02));
+  border-radius:18px;border:1px dashed rgba(122,162,255,.4);
+}
+button{
+  border:none;border-radius:12px;padding:14px 18px;font-size:1rem;
+  background:linear-gradient(180deg,#8bb3ff,#6f98ff);
+  color:#0b1020;font-weight:700;cursor:pointer;
+}
+footer{text-align:center;padding:24px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+<h1>Prime Yourself for Learning</h1>
+<p>Learning sticks when you prepare your brain first.</p>
+</header>
+
+<main>
+<section class="card"><span class="tag">Step 1</span><h2>Clarify the Target</h2>
+<ul><li>Define a specific outcome</li><li>Time-box the session</li><li>Choose one source</li></ul>
+</section>
+
+<section class="card"><span class="tag">Step 2</span><h2>Lower Noise</h2>
+<ul><li>Silence distractions</li><li>One task only</li><li>Fix comfort</li></ul>
+</section>
+
+<section class="card"><span class="tag">Step 3</span><h2>Activate Knowledge</h2>
+<ul><li>Write what you know</li><li>Ask one question</li><li>Predict outcomes</li></ul>
+</section>
+
+<section class="cta">
+<h2>15-Minute Prime</h2>
+<button onclick="startPrime()">Start</button>
+</section>
+</main>
+
+<footer><p>Built to show how ChatGPT scaffolds real learning.</p></footer>
+
+<script>
+function startPrime(){
+  let end=Date.now()+15*60*1000;
+  let t=setInterval(()=>{
+    let r=end-Date.now();
+    if(r<=0){clearInterval(t);alert('Prime complete. Start learning.')}
+    document.title='Prime: '+Math.floor(r/60000)+':'+String(Math.floor(r%60000/1000)).padStart(2,'0');
+  },250);
+}
+</script>
+</body>
+</html>
